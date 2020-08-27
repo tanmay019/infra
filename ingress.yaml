@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  # annotations:
+  #   nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: log
+    servicePort: 3099
+  rules:
+    - http:
+        paths:
+          - path: /react
+            backend:
+              serviceName: react
+              servicePort: 3030
+          - path: /log
+            backend:
+              serviceName: log
+              servicePort: 3099
