@@ -1,0 +1,9 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: ssd
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-ssd
+  zone: us-central1-c  # Change this value
+  # zone: europe-west4-c  # Use this value for diferent availablity zone.
